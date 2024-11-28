@@ -32,15 +32,9 @@ function toggleMenu() {
 // Function to show specific sections
 function showSection(sectionName) {
     // Hide all sections
-    const sections = [
-        'home-section', 
-        'projects-section', 
-        'contacts-section'
-    ];
-    
+    const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
-        const sectionElement = document.getElementById(section);
-        sectionElement.style.display = 'none';
+        section.style.display = 'none';
     });
 
     // Show selected section
