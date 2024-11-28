@@ -15,12 +15,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 20px 60px; /* Increased padding to make navbar larger */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: fixed;
-    top: 0;
+    top: 0;  /* Ensure no space at the top */
     left: 0;
-    width: calc(100% - 100px);
+    width: 100%; /* Full width */
     z-index: 1000;
 }
 
@@ -34,8 +34,8 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.3s ease;
-    font-size: 1em;
-    margin-right: 30px;
+    font-size: 1.2em; /* Increased font size */
+    margin-right: 40px; /* Increased space between links */
     cursor: pointer;
 }
 
@@ -48,8 +48,8 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    width: 30px;
-    height: 25px;
+    width: 35px;  /* Made burger menu slightly larger */
+    height: 28px; /* Made burger menu slightly larger */
     justify-content: space-between;
     padding: 5px;
 }
@@ -63,8 +63,8 @@ body {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 15px 20px;
-        width: calc(100% - 40px);
+        padding: 20px 30px; /* Adjusted padding for smaller screens */
+        width: 100%; /* Full width */
     }
 
     .navbar-links {
@@ -81,7 +81,7 @@ body {
 
     .navbar-links a {
         color: #FF69B4;
-        padding: 15px;
+        padding: 20px;
         width: 100%;
         text-align: center;
         border-top: 1px solid rgba(0,0,0,0.1);
@@ -111,10 +111,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px 20px 50px;
+    padding: 120px 20px 50px; /* Adjusted content padding */
     background-color: white;
     min-height: calc(100vh - 200px);
-    margin-top: 70px; /* Added to ensure content is below navbar */
+    margin-top: 80px; /* Adjusted top margin for larger navbar */
 }
-
-/* Rest of the CSS remains the same */
