@@ -83,14 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset navbar on larger screens
         if (window.innerWidth > 768) {
             navbarLinks.classList.remove('active');
-            navbarLinks.style.display = 'flex';
-            
-            // Reset burger lines
-            const burgerLines = document.querySelectorAll('.burger-line');
-            burgerLines.forEach(line => {
-                line.style.transform = 'none';
-                line.style.opacity = '1';
-            });
+            // Remove inline style to let CSS take over
+            navbarLinks.style.removeProperty('display');
         }
     });
 });
