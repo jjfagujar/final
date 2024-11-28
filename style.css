@@ -1,120 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    color: black;
 }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background-color: maroon;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: calc(100% - 100px);
-    z-index: 1000;
+    padding: 1rem 2rem;
 }
 
 .navbar-links {
     display: flex;
-    align-items: center;
+    gap: 1rem;
 }
 
-.navbar a {
+.navbar-links a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    font-size: 1em;
-    margin-right: 30px;
-    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-    transform: scale(1.1);
-    text-shadow: 0 0 10px rgba(255,255,255,0.7);
+.navbar-links a:hover {
+    color: #ffcccc;
 }
 
 .burger-menu {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    width: 30px;
-    height: 25px;
-    justify-content: space-between;
-    padding: 5px;
 }
 
 .burger-line {
+    width: 25px;
     height: 3px;
     background-color: white;
-    transition: all 0.3s ease;
-    transform-origin: center;
+    margin: 3px 0;
+    transition: 0.4s;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-        width: calc(100% - 40px);
-    }
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
 
+#home-section, 
+#projects-section, 
+#contacts-section {
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    color: maroon;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    background-color: maroon;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #8b0000;
+}
+
+footer {
+    background-color: maroon;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
     .navbar-links {
         display: none;
-        position: fixed;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
         top: 70px;
         left: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        flex-direction: column;
-        align-items: center;
-        z-index: 1000;
+        background-color: maroon;
+        padding: 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
     }
 
     .navbar-links a {
-        color: #FF69B4;
-        padding: 15px;
-        width: 100%;
+        margin: 0.5rem 0;
         text-align: center;
-        border-top: 1px solid rgba(0,0,0,0.1);
-        margin-right: 0;
     }
 
     .burger-menu {
         display: flex;
     }
 
-    .burger-menu.active .burger-line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .burger-menu.active .burger-line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu.active .burger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+    .content {
+        padding: 1rem;
     }
 }
-
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 50px;
-    background-color: white;
-    min-height: calc(100vh - 200px);
-    margin-top: 70px; /* Added to ensure content is below navbar */
-}
-
-/* Rest of the CSS remains the same */
