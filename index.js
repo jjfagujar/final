@@ -74,11 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const navbarLinks = document.querySelector('.navbar-links');
         const burgerMenu = document.querySelector('.burger-menu');
 
-        // Reset navbar on larger screens
+        // Check if the screen is large or small
         if (window.innerWidth > 768) {
+            // On large screens, ensure the navbar is visible and reset it to default state
             navbarLinks.classList.remove('active');
-            // Remove inline style to let CSS take over
-            navbarLinks.style.removeProperty('display');
+            navbarLinks.style.removeProperty('display'); // Let CSS take care of layout
+        } else {
+            // On small screens, navbar will be hidden until toggled
+            navbarLinks.style.display = ''; // Ensure it is shown when toggled
         }
     });
 });
