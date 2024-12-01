@@ -48,6 +48,36 @@ function showSection(sectionName) {
     }
 }
 
+// Function to load the specific project (i.e., convertor)
+function loadProject(projectName) {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+    const projectIframe = document.getElementById('project-iframe');
+
+    // Hide project links
+    projectContent.style.display = 'none';
+    
+    // Show iframe container
+    projectIframeContainer.style.display = 'block';
+    
+    // Load specific project
+    if (projectName === 'convertor') {
+        projectIframe.src = 'convertor.html';
+    }
+}
+
+// Function to close the project (iframe)
+function closeProject() {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+
+    // Hide iframe
+    projectIframeContainer.style.display = 'none';
+    
+    // Show project links
+    projectContent.style.display = 'block';
+}
+
 // Function to open convertor (placeholder for now)
 function openConvertor() {
     alert('Convertor functionality will be implemented soon!');
