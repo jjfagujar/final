@@ -4,46 +4,6 @@
     <meta charset="UTF-8">
     <title>Final Project ITC</title>
     <link rel="stylesheet" href="index.css">
-    <style>
-        /* Embedded Converter Styles */
-        .converter-container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .converter-section {
-            margin-bottom: 20px;
-        }
-
-        .converter-section select, 
-        .converter-section input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .converter-section button {
-            width: 100%;
-            padding: 10px;
-            background-color: maroon;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .converter-section p {
-            text-align: center;
-            font-weight: bold;
-            color: maroon;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -67,29 +27,7 @@
         
         <div id="projects-section" class="section" style="display: none;">
             <h2>Projects</h2>
-            <div class="converter-container">
-                <div class="converter-section">
-                    <h2>Temperature Converter</h2>
-                    <select id="temp-from-unit">
-                        <option value="celsius">Celsius</option>
-                        <option value="fahrenheit">Fahrenheit</option>
-                    </select>
-                    <input type="number" id="temp-input" placeholder="Enter temperature">
-                    <button onclick="convertTemperature()">Convert</button>
-                    <p id="temp-result"></p>
-                </div>
-
-                <div class="converter-section">
-                    <h2>Length Converter</h2>
-                    <select id="length-from-unit">
-                        <option value="meters">Meters</option>
-                        <option value="feet">Feet</option>
-                    </select>
-                    <input type="number" id="length-input" placeholder="Enter length">
-                    <button onclick="convertLength()">Convert</button>
-                    <p id="length-result"></p>
-                </div>
-            </div>
+            <a href="#" class="project-link" onclick="openConvertor()">Convertor</a>
         </div>
         
         <div id="contacts-section" class="section" style="display: none;">
@@ -99,56 +37,6 @@
         </div>
     </div>
     <footer>By Jhoeritch Josephus F. Agujar CS - 1130 BS ComSci</footer>
-    <script>
-        // Temperature Conversion
-        function convertTemperature() {
-            const tempInput = document.getElementById('temp-input');
-            const tempFromUnit = document.getElementById('temp-from-unit');
-            const tempResult = document.getElementById('temp-result');
-            
-            const input = parseFloat(tempInput.value);
-            
-            if (isNaN(input)) {
-                tempResult.textContent = 'Please enter a valid number';
-                return;
-            }
-            
-            let result;
-            if (tempFromUnit.value === 'celsius') {
-                // Celsius to Fahrenheit
-                result = (input * 9/5) + 32;
-                tempResult.textContent = `${input}°C = ${result.toFixed(2)}°F`;
-            } else {
-                // Fahrenheit to Celsius
-                result = (input - 32) * 5/9;
-                tempResult.textContent = `${input}°F = ${result.toFixed(2)}°C`;
-            }
-        }
-
-        // Length Conversion
-        function convertLength() {
-            const lengthInput = document.getElementById('length-input');
-            const lengthFromUnit = document.getElementById('length-from-unit');
-            const lengthResult = document.getElementById('length-result');
-            
-            const input = parseFloat(lengthInput.value);
-            
-            if (isNaN(input)) {
-                lengthResult.textContent = 'Please enter a valid number';
-                return;
-            }
-            
-            let result;
-            if (lengthFromUnit.value === 'meters') {
-                // Meters to Feet
-                result = input * 3.28084;
-                lengthResult.textContent = `${input} m = ${result.toFixed(2)} ft`;
-            } else {
-                // Feet to Meters
-                result = input / 3.28084;
-                lengthResult.textContent = `${input} ft = ${result.toFixed(2)} m`;
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
