@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="convertor.css">
 </head>
 <body>
+    <div class="converter-container">
+        <h1>Unit Converter</h1>
+        
+        <div class="converter-section">
+            <h2>Temperature Converter</h2>
+            <select id="temp-from-unit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+            </select>
+            <input type="number" id="temp-input" placeholder="Enter temperature">
+            <button onclick="convertTemperature()">Convert</button>
+            <p id="temp-result"></p>
+        </div>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+        <div class="converter-section">
+            <h2>Length Converter</h2>
+            <select id="length-from-unit">
+                <option value="meters">Meters</option>
+                <option value="feet">Feet</option>
+            </select>
+            <input type="number" id="length-input" placeholder="Enter length">
+            <button onclick="convertLength()">Convert</button>
+            <p id="length-result"></p>
+        </div>
+    </div>
 
+    <script src="convertor.js"></script>
 </body>
 </html>
