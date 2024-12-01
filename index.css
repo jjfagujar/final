@@ -106,6 +106,27 @@ footer {
     width: 100%;
 }
 
+/* New styles for project iframe section */
+#project-iframe-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+#project-iframe {
+    border: 2px solid maroon;
+    border-radius: 8px;
+}
+
+#project-iframe-container button {
+    margin-top: 15px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar-links {
