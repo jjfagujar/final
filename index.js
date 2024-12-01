@@ -49,8 +49,32 @@ function showSection(sectionName) {
 }
 
 // Function to open convertor (placeholder for now)
-function openConvertor() {
-    alert('Convertor functionality will be implemented soon!');
+function loadProject(projectName) {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+    const projectIframe = document.getElementById('project-iframe');
+
+    // Hide project links
+    projectContent.style.display = 'none';
+    
+    // Show iframe container
+    projectIframeContainer.style.display = 'block';
+    
+    // Load specific project
+    if (projectName === 'convertor') {
+        projectIframe.src = 'convertor.html';
+    }
+}
+
+function closeProject() {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+
+    // Hide iframe
+    projectIframeContainer.style.display = 'none';
+    
+    // Show project links
+    projectContent.style.display = 'block';
 }
 
 // Initialize: Show home section by default
