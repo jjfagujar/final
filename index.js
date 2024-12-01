@@ -2,6 +2,7 @@
 function toggleMenu() {
     const navbarLinks = document.querySelector('.navbar-links');
     navbarLinks.classList.toggle('active');
+
     // Toggle burger menu animation
     const burgerLines = document.querySelectorAll('.burger-line');
     burgerLines.forEach((line, index) => {
@@ -35,42 +36,16 @@ function showSection(sectionName) {
     sections.forEach(section => {
         section.style.display = 'none';
     });
+
     // Show selected section
     const selectedSection = document.getElementById(`${sectionName}-section`);
     selectedSection.style.display = 'block';
+
     // Close mobile menu when a section is selected
     const navbarLinks = document.querySelector('.navbar-links');
     if (navbarLinks.classList.contains('active')) {
         toggleMenu();
     }
-}
-
-// Function to load project
-function loadProject(projectName) {
-    const projectContent = document.getElementById('project-content');
-    const projectIframeContainer = document.getElementById('project-iframe-container');
-    const projectIframe = document.getElementById('project-iframe');
-    // Hide project links
-    projectContent.style.display = 'none';
-    
-    // Show iframe container
-    projectIframeContainer.style.display = 'block';
-    
-    // Load specific project
-    if (projectName === 'convertor') {
-        projectIframe.src = 'convertor.html';
-    }
-}
-
-// Function to close project
-function closeProject() {
-    const projectContent = document.getElementById('project-content');
-    const projectIframeContainer = document.getElementById('project-iframe-container');
-    // Hide iframe
-    projectIframeContainer.style.display = 'none';
-    
-    // Show project links
-    projectContent.style.display = 'block';
 }
 
 // Function to open convertor (placeholder for now)
@@ -81,6 +56,7 @@ function openConvertor() {
 // Initialize: Show home section by default
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
+
     // Add event listener to close mobile menu when clicking outside
     document.addEventListener('click', (event) => {
         const navbarLinks = document.querySelector('.navbar-links');
@@ -92,10 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         }
     });
+
     // Responsive navbar handling
     window.addEventListener('resize', () => {
         const navbarLinks = document.querySelector('.navbar-links');
         const burgerMenu = document.querySelector('.burger-menu');
+
         // Check if the screen is large or small
         if (window.innerWidth > 768) {
             // On large screens, ensure the navbar is visible and reset it to default state
