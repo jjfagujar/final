@@ -2,41 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Income Tax Calculator</title>
-    <link rel="stylesheet" href="income-tax-styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="section" id="income-tax-section">
+    <div class="calculator">
         <h1>Income Tax Calculator</h1>
-        <form id="tax-calculator-form">
-            <div class="form-group">
-                <label for="annual-income">Annual Income ($):</label>
-                <input type="number" id="annual-income" required>
-            </div>
-            <div class="form-group">
-                <label for="filing-status">Filing Status:</label>
-                <select id="filing-status" required>
-                    <option value="single">Single</option>
-                    <option value="married-joint">Married Filing Jointly</option>
-                    <option value="married-separate">Married Filing Separately</option>
-                    <option value="head-of-household">Head of Household</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="state">State:</label>
-                <select id="state" required>
-                    <option value="federal">Federal Only</option>
-                    <option value="CA">California</option>
-                    <option value="NY">New York</option>
-                    <option value="TX">Texas</option>
-                    <!-- Add more states as needed -->
-                </select>
-            </div>
-            <button type="submit" class="project-link">Calculate Taxes</button>
-        </form>
-        <div id="tax-results" class="tax-results"></div>
+        <div class="form-group">
+            <label for="income">Net Taxable Income (PHP)</label>
+            <input type="number" id="income" placeholder="Enter your annual income">
+        </div>
+        <button id="calculate-btn">Calculate Tax</button>
+        <div id="result"></div>
     </div>
-    <script src="income-tax-calculator.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
