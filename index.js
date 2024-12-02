@@ -57,6 +57,8 @@ function loadProject(projectName) {
     // Load specific project
     if (projectName === 'convertor') {
         projectIframe.src = 'convertor.html';
+    } else if (projectName === 'income-tax') {
+        projectIframe.src = 'income-tax.html';
     }
 }
 function closeProject() {
