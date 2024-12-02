@@ -67,7 +67,7 @@ function closeProject() {
     
     // Show project links
     projectContent.style.display = 'block';
-}}
+}
 // Initialize: Show home section by default
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
