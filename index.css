@@ -4,14 +4,12 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 body {
     background-color: white;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 .navbar {
     background-color: maroon;
     display: flex;
@@ -19,28 +17,23 @@ body {
     align-items: center;
     padding: 1rem 2rem;
 }
-
 .navbar-links {
     display: flex;
     gap: 1rem;
 }
-
 .navbar-links a {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .navbar-links a:hover {
     color: #ffcccc;
 }
-
 .burger-menu {
     display: none;
     flex-direction: column;
     cursor: pointer;
 }
-
 .burger-line {
     width: 25px;
     height: 3px;
@@ -48,7 +41,6 @@ body {
     margin: 3px 0;
     transition: 0.4s;
 }
-
 .content {
     flex-grow: 1;
     display: flex;
@@ -57,7 +49,6 @@ body {
     align-items: center;
     padding: 2rem;
 }
-
 /* NEW SECTION VISIBILITY STYLES */
 .section {
     display: none;
@@ -66,24 +57,20 @@ body {
     text-align: center;
     padding: 2rem;
 }
-
 #home-section {
     display: block; /* Home section visible by default */
 }
 /* END OF NEW SECTION VISIBILITY STYLES */
-
 #home-section, 
 #projects-section, 
 #contacts-section {
     max-width: 800px;
     margin-bottom: 2rem;
 }
-
 h1, h2 {
     color: maroon;
     margin-bottom: 1rem;
 }
-
 .project-link {
     display: inline-block;
     background-color: maroon;
@@ -93,11 +80,9 @@ h1, h2 {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .project-link:hover {
     background-color: #8b0000;
 }
-
 footer {
     background-color: maroon;
     color: white;
@@ -105,7 +90,6 @@ footer {
     padding: 1rem;
     width: 100%;
 }
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar-links {
@@ -118,20 +102,16 @@ footer {
         background-color: maroon;
         padding: 1rem;
     }
-
     .navbar-links.active {
         display: flex;
     }
-
     .navbar-links a {
         margin: 0.5rem 0;
         text-align: center;
     }
-
     .burger-menu {
         display: flex;
     }
-
     .content {
         padding: 1rem;
     }
@@ -140,12 +120,10 @@ footer {
     width: 100%;
     max-width: 800px;
 }
-
 #project-iframe {
     border: 2px solid maroon;
     border-radius: 8px;
 }
-
 #project-iframe-container button {
     margin-top: 15px;
     background-color: maroon;
