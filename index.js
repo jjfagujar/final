@@ -67,6 +67,31 @@ function closeProject() {
     
     // Show project links
     projectContent.style.display = 'block';
+}}
+// Function to open itc (placeholder for now)
+function loadProject(projectName) {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+    const projectIframe = document.getElementById('project-iframe');
+    // Hide project links
+    projectContent.style.display = 'none';
+    
+    // Show iframe container
+    projectIframeContainer.style.display = 'block';
+    
+    // Load specific project
+    if (projectName === 'itc') {
+        projectIframe.src = 'itc.html';
+    }
+}
+function closeProject() {
+    const projectContent = document.getElementById('project-content');
+    const projectIframeContainer = document.getElementById('project-iframe-container');
+    // Hide iframe
+    projectIframeContainer.style.display = 'none';
+    
+    // Show project links
+    projectContent.style.display = 'block';
 }
 // Initialize: Show home section by default
 document.addEventListener('DOMContentLoaded', () => {
