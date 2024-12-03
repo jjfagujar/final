@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Numbers Calculations</title>
+    <link rel="stylesheet" href="natural-numbers.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Natural Numbers Calculations</h1>
+        
+        <div class="calculation-section">
+            <h2>Factorial Calculation (While Loop)</h2>
+            <input type="number" id="factorialInput" placeholder="Enter a number">
+            <button onclick="calculateFactorial()">Calculate Factorial</button>
+            <p id="factorialResult"></p>
+        </div>
+
+        <div class="calculation-section">
+            <h2>Sum of First N Numbers (Do-While Loop)</h2>
+            <input type="number" id="sumInput" placeholder="Enter N">
+            <button onclick="calculateSum()">Calculate Sum</button>
+            <p id="sumResult"></p>
+        </div>
+
+        <div class="calculation-section">
+            <h2>Average of First N Numbers (For Loop)</h2>
+            <input type="number" id="averageInput" placeholder="Enter N">
+            <button onclick="calculateAverage()">Calculate Average</button>
+            <p id="averageResult"></p>
+        </div>
+    </div>
+
+    <script src="natural-numbers.js"></script>
+</body>
+</html>
