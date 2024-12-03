@@ -6,7 +6,7 @@ function calculateFactorial() {
 
     // Input validation
     if (isNaN(n) || n < 0) {
-        resultElement.textContent = 'Please enter a non-negative number';
+        resultElement.textContent = 'Please enter a positive number';
         return;
     }
 
