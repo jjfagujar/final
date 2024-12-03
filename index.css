@@ -1,12 +1,9 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
-/* Body and Layout */
 body {
     background-color: white;
     display: flex;
@@ -47,13 +44,12 @@ body {
 .content {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
     padding: 2rem;
-    text-align: center;
+    text-align: center; /* Optional: center text alignment */
 }
-
-/* Section Styles */
+/* NEW SECTION VISIBILITY STYLES */
 .section {
     display: none;
     width: 100%;
@@ -63,6 +59,13 @@ body {
 }
 #home-section {
     display: block; /* Home section visible by default */
+}
+/* END OF NEW SECTION VISIBILITY STYLES */
+#home-section, 
+#projects-section, 
+#contacts-section {
+    max-width: 800px;
+    margin-bottom: 2rem;
 }
 h1, h2 {
     color: maroon;
@@ -87,11 +90,10 @@ footer {
     padding: 1rem;
     width: 100%;
 }
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar-links {
-        display: none; /* Hide navbar-links by default */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -101,13 +103,19 @@ footer {
         padding: 1rem;
     }
     .navbar-links.active {
-        display: flex; /* Show navbar-links when active */
+        display: flex;
+    }
+    .navbar-links a {
+        margin: 0.5rem 0;
+        text-align: center;
     }
     .burger-menu {
-        display: flex; /* Show burger menu on mobile */
+        display: flex;
     }
     .content {
         padding: 1rem;
+        justify-content: center; /* Center contents horizontally */
+        align-items: center; /* Center contents vertically */
     }
 }
 #project-iframe-container {
