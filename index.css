@@ -138,10 +138,12 @@ footer {
 #contacts-section {
     display: flex;
     flex-direction: column;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-height: calc(100vh - 200px); /* Adjusts height to center content vertically */
+    width: 100%;
+    padding: 2rem;
 }
 
 #contacts-section p {
