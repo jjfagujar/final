@@ -35,7 +35,7 @@ function showSection(sectionName) {
         section.style.display = 'none';
     });
     // Show selected section
-    const selectedSection = document.getElementById(${sectionName}-section);
+    const selectedSection = document.getElementById(`${sectionName}-section`);
     selectedSection.style.display = 'block';
     // Close mobile menu when a section is selected
     const navbarLinks = document.querySelector('.navbar-links');
