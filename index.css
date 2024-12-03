@@ -135,3 +135,16 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
+#contacts-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 300px; /* Adjust as needed to ensure vertical centering */
+}
+
+#contacts-section p {
+    margin: 10px 0;
+    text-align: center;
+}
