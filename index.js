@@ -27,75 +27,37 @@ function toggleMenu() {
         }
     });
 }
+
 // Function to show specific sections
 function showSection(sectionName) {
-    // Hide all sections
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.style.display = 'none';
     });
-    // Show selected section
-    const selectedSection = document.getElementById(`${sectionName}-section`);
-    selectedSection.style.display = 'block';
-    // Close mobile menu when a section is selected
+    document.getElementById(`${sectionName}-section`).style.display = 'block';
     const navbarLinks = document.querySelector('.navbar-links');
     if (navbarLinks.classList.contains('active')) {
         toggleMenu();
     }
 }
-// Function to open convertor (placeholder for now)
+
+// Function to open a project
 function loadProject(projectName) {
     const projectContent = document.getElementById('project-content');
     const projectIframeContainer = document.getElementById('project-iframe-container');
     const projectIframe = document.getElementById('project-iframe');
-    // Hide project links
     projectContent.style.display = 'none';
-    
-    // Show iframe container
     projectIframeContainer.style.display = 'block';
-    
-    // Load specific project
-    if (projectName === 'convertor') {
-        projectIframe.src = 'convertor.html';
-    } else if (projectName === 'income-tax') {
-        projectIframe.src = 'income-tax.html';
-    }
+    projectIframe.src = projectName === 'convertor' ? 'convertor.html' : 'income-tax.html';
 }
+
+// Function to close the project
 function closeProject() {
-    const projectContent = document.getElementById('project-content');
-    const projectIframeContainer = document.getElementById('project-iframe-container');
-    // Hide iframe
-    projectIframeContainer.style.display = 'none';
-    
-    // Show project links
-    projectContent.style.display = 'block';
+    document.getElementById('project-iframe-container').style.display = 'none';
+    document.getElementById('project-content').style.display = 'block';
 }
-// Initialize: Show home section by default
+
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
-    // Add event listener to close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        const navbarLinks = document.querySelector('.navbar-links');
-        const burgerMenu = document.querySelector('.burger-menu');
-        
-        if (navbarLinks.classList.contains('active') && 
-            !navbarLinks.contains(event.target) && 
-            !burgerMenu.contains(event.target)) {
-            toggleMenu();
-        }
-    });
-    // Responsive navbar handling
-    window.addEventListener('resize', () => {
-        const navbarLinks = document.querySelector('.navbar-links');
-        const burgerMenu = document.querySelector('.burger-menu');
-        // Check if the screen is large or small
-        if (window.innerWidth > 768) {
-            // On large screens, ensure the navbar is visible and reset it to default state
-            navbarLinks.classList.remove('active');
-            navbarLinks.style.removeProperty('display'); // Let CSS take care of layout
-        } else {
-            // On small screens, navbar will be hidden until toggled
-            navbarLinks.style.display = ''; // Ensure it is shown when toggled
-        }
-    });
 });
