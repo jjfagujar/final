@@ -1,6 +1,7 @@
 // Array to store employee data
 let employees = [];
 let employeeToRemoveIndex = -1; // Variable to store the index of employee to be removed
+let isRemoveAll = false; // Variable to track if "Delete All" is triggered
 
 function addEmployee() {
     const employeeName = document.getElementById('employeeName').value;
@@ -56,8 +57,23 @@ function updateEmployeeTable() {
 function confirmRemoveEmployee(index) {
     // Store the index of the employee to be removed
     employeeToRemoveIndex = index;
+    isRemoveAll = false; // Reset remove all flag
+
+    // Update modal text for single employee removal
+    document.getElementById('modalText').textContent = `Are you sure you want to delete ${employees[index].name}?`;
 
     // Show the modal
+    document.getElementById('confirmationModal').style.display = 'block';
+}
+
+function confirmRemoveAllEmployees() {
+    // Set the flag to indicate delete all employees
+    isRemoveAll = true;
+
+    // Update modal text for removing all employees
+    document.getElementById('modalText').textContent = "Are you sure you want to delete all employees?";
+
+    // Show the modal for confirming the delete all action
     document.getElementById('confirmationModal').style.display = 'block';
 }
 
@@ -71,20 +87,27 @@ function removeEmployee() {
     // Hide the modal
     document.getElementById('confirmationModal').style.display = 'none';
     employeeToRemoveIndex = -1; // Reset index
-}
-
-function cancelRemoveEmployee() {
-    // Hide the modal without removing the employee
-    document.getElementById('confirmationModal').style.display = 'none';
-    employeeToRemoveIndex = -1; // Reset index
+    isRemoveAll = false; // Reset remove all flag
 }
 
 function removeAllEmployees() {
-    if (confirm('Are you sure you want to remove all employees?')) {
+    // Clear all employees if the flag is set to true
+    if (isRemoveAll) {
         employees = [];
         updateEmployeeTable();
         document.getElementById('result').innerHTML = '';
     }
+
+    // Hide the modal
+    document.getElementById('confirmationModal').style.display = 'none';
+    isRemoveAll = false; // Reset remove all flag
+}
+
+function cancelRemoveEmployee() {
+    // Hide the modal without removing anything
+    document.getElementById('confirmationModal').style.display = 'none';
+    employeeToRemoveIndex = -1; // Reset index
+    isRemoveAll = false; // Reset remove all flag
 }
 
 function calculateTotalPayroll() {
@@ -98,5 +121,11 @@ function calculateTotalPayroll() {
 }
 
 // Add event listeners for modal buttons
-document.getElementById('confirmYes').addEventListener('click', removeEmployee);
+document.getElementById('confirmYes').addEventListener('click', () => {
+    if (isRemoveAll) {
+        removeAllEmployees();
+    } else {
+        removeEmployee();
+    }
+});
 document.getElementById('confirmNo').addEventListener('click', cancelRemoveEmployee);
