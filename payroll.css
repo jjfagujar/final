@@ -135,56 +135,54 @@ th {
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
-    top: 0;
+    z-index: 1;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's on top */
+    padding: 20px;
 }
 
+/* Modal Content */
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 100%;
+    border-radius: 5px;
+    width: 300px;
     text-align: center;
 }
 
+/* Modal Buttons */
 .modal-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-.modal-yes, .modal-no {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
+.modal-buttons button {
+    padding: 10px;
+    width: 80px;
+    margin: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.modal-yes {
+#confirmYes {
     background-color: white;
     color: maroon;
+    border: 1px solid maroon;
 }
 
-.modal-no {
-    background-color: #dc3545; /* Same as remove button color */
+#confirmNo {
+    background-color: #dc3545;
     color: white;
+    border: none;
 }
 
-.modal-yes:hover {
+#confirmYes:hover {
     background-color: #f8f8f8;
 }
 
-.modal-no:hover {
+#confirmNo:hover {
     background-color: #c82333;
 }
-
-
-
