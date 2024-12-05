@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 body {
     background-color: white;
     display: flex;
@@ -11,6 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+
 .container {
     background-color: white;
     border-radius: 10px;
@@ -19,11 +21,13 @@ body {
     width: 100%;
     max-width: 600px;
 }
+
 h1 {
     text-align: center;
     color: maroon;
     margin-bottom: 20px;
 }
+
 .calculation-section {
     background-color: #f9f9f9;
     border-radius: 5px;
@@ -31,11 +35,13 @@ h1 {
     margin-bottom: 15px;
     border: 1px solid maroon;
 }
+
 h2 {
     color: maroon;
     margin-top: 0;
     font-size: 18px;
 }
+
 input {
     width: 100%;
     padding: 10px;
@@ -44,6 +50,7 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 button {
     width: 100%;
     padding: 10px;
@@ -55,31 +62,38 @@ button {
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
+
 button:hover {
     background-color: #8b0000;
 }
+
 p {
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
     color: #333;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
 }
+
 table, th, td {
     border: 1px solid maroon;
 }
+
 th, td {
     padding: 10px;
     text-align: center;
 }
+
 th {
     background-color: #f9f9f9;
     color: maroon;
 }
+
 .remove-btn {
     background-color: #dc3545;
     width: auto;
@@ -90,6 +104,7 @@ th {
     color: white;
     transition: background-color 0.3s ease;
 }
+
 .remove-btn:hover {
     background-color: #c82333;
 }
@@ -111,9 +126,11 @@ th {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .remove-all-btn:hover {
     background-color: #c82333;
 }
+
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
