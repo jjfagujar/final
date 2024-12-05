@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Calculator</title>
+    <link rel="payroll" href="payroll.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payroll Calculator</h1>
+        <div class="calculation-section">
+            <h2>Employee Information</h2>
+            <input type="text" id="employeeName" placeholder="Employee Name">
+            <input type="number" id="hourlyRate" placeholder="Hourly Rate ($)">
+            <input type="number" id="hoursWorked" placeholder="Hours Worked">
+            <button onclick="calculatePayroll()">Calculate Payroll</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="payroll.js"></script>
+</body>
+</html>
