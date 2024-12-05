@@ -44,12 +44,11 @@ body {
 .content {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Center contents horizontally */
-    align-items: center; /* Center contents vertically */
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    text-align: center; /* Optional: center text alignment */
+    text-align: center;
 }
-/* NEW SECTION VISIBILITY STYLES */
 .section {
     display: none;
     width: 100%;
@@ -58,9 +57,8 @@ body {
     padding: 2rem;
 }
 #home-section {
-    display: block; /* Home section visible by default */
+    display: block;
 }
-/* END OF NEW SECTION VISIBILITY STYLES */
 #home-section, 
 #projects-section, 
 #contacts-section {
@@ -90,6 +88,40 @@ footer {
     padding: 1rem;
     width: 100%;
 }
+#project-iframe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    text-align: center;
+}
+
+#project-iframe {
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid maroon;
+    border-radius: 8px;
+}
+
+#project-iframe-container button {
+    margin-top: 15px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#project-iframe-container button:hover {
+    background-color: #8b0000;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar-links {
@@ -114,32 +146,7 @@ footer {
     }
     .content {
         padding: 1rem;
-        justify-content: center; /* Center contents horizontally */
-        align-items: center; /* Center contents vertically */
+        justify-content: center;
+        align-items: center;
     }
-#project-iframe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: calc(100vh - 200px); /* Adjust based on your navbar and footer height */
-}
-
-#project-iframe {
-    width: 100%;
-    max-width: 800px;
-    border: 2px solid maroon;
-    border-radius: 8px;
-}
-
-#project-iframe-container button {
-    margin-top: 15px;
-    background-color: maroon;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
 }
