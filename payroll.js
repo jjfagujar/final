@@ -129,3 +129,7 @@ document.getElementById('confirmYes').addEventListener('click', () => {
     }
 });
 document.getElementById('confirmNo').addEventListener('click', cancelRemoveEmployee);
+
+
+
+
