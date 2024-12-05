@@ -76,3 +76,7 @@ function updateEmployeeTable() {
                 <td>${employee.hoursWorked.toFixed(2)}</td>
                 <td>$${employee.grossPay.toFixed(2)}</td>
                 <td><button class="remove-btn" onclick
+
+
+
+
