@@ -1,35 +1,6 @@
 // Array to store employee data
 let employees = [];
-
-// Show confirmation modal
-let currentRemoveIndex = -1; // Store index of employee to remove
-function confirmRemoveEmployee(index) {
-    currentRemoveIndex = index; // Set the index of the employee to be removed
-    const modal = document.getElementById('confirmationModal');
-    const message = document.getElementById('confirmationMessage');
-    message.innerHTML = `Are you sure you want to remove ${employees[index].name}?`;
-    modal.style.display = 'flex'; // Show modal
-}
-
-// Handle Yes button click
-document.getElementById('confirmYes').onclick = function() {
-    if (currentRemoveIndex !== -1) {
-        employees.splice(currentRemoveIndex, 1); // Remove employee from array
-        updateEmployeeTable(); // Update table
-    }
-    closeModal(); // Close the modal
-};
-
-// Handle No button click
-document.getElementById('confirmNo').onclick = function() {
-    closeModal(); // Just close the modal without removing
-};
-
-// Close the modal
-function closeModal() {
-    const modal = document.getElementById('confirmationModal');
-    modal.style.display = 'none'; // Hide modal
-}
+let employeeToRemoveIndex = -1; // Variable to store the index of employee to be removed
 
 function addEmployee() {
     const employeeName = document.getElementById('employeeName').value;
@@ -66,7 +37,7 @@ function addEmployee() {
 
 function updateEmployeeTable() {
     const tableBody = document.getElementById('employeeTableBody');
-    tableBody.innerHTML = '';
+    tableBody.innerHTML = ''; // Clear the table before updating
 
     employees.forEach((employee, index) => {
         const row = `
@@ -80,6 +51,32 @@ function updateEmployeeTable() {
         `;
         tableBody.innerHTML += row;
     });
+}
+
+function confirmRemoveEmployee(index) {
+    // Store the index of the employee to be removed
+    employeeToRemoveIndex = index;
+
+    // Show the modal
+    document.getElementById('confirmationModal').style.display = 'block';
+}
+
+function removeEmployee() {
+    if (employeeToRemoveIndex >= 0) {
+        // Remove the employee from the array
+        employees.splice(employeeToRemoveIndex, 1);
+        updateEmployeeTable();
+    }
+
+    // Hide the modal
+    document.getElementById('confirmationModal').style.display = 'none';
+    employeeToRemoveIndex = -1; // Reset index
+}
+
+function cancelRemoveEmployee() {
+    // Hide the modal without removing the employee
+    document.getElementById('confirmationModal').style.display = 'none';
+    employeeToRemoveIndex = -1; // Reset index
 }
 
 function removeAllEmployees() {
@@ -99,3 +96,7 @@ function calculateTotalPayroll() {
         Total Payroll: $${totalGrossPay.toFixed(2)}
     `;
 }
+
+// Add event listeners for modal buttons
+document.getElementById('confirmYes').addEventListener('click', removeEmployee);
+document.getElementById('confirmNo').addEventListener('click', cancelRemoveEmployee);
