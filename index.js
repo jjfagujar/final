@@ -66,7 +66,7 @@ function loadProject(projectName) {
         projectIframe.src = 'income-tax.html';
     } else if (projectName === 'natural-numbers') {
         projectIframe.src = 'natural-numbers.html';
-    } else (projectName === 'payroll') {
+    } else if (projectName === 'payroll') {
          projectIframe.src = 'payroll.html';
 }
 
