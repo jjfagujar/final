@@ -44,10 +44,10 @@ body {
 .content {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Center contents horizontally */
-    align-items: center; /* Center contents vertically */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    text-align: center; /* Optional: center text alignment */
 }
 /* NEW SECTION VISIBILITY STYLES */
 .section {
@@ -114,8 +114,6 @@ footer {
     }
     .content {
         padding: 1rem;
-        justify-content: center; /* Center contents horizontally */
-        align-items: center; /* Center contents vertically */
     }
 }
 #project-iframe-container {
