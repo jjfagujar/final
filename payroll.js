@@ -75,8 +75,27 @@ function updateEmployeeTable() {
                 <td>$${employee.hourlyRate.toFixed(2)}</td>
                 <td>${employee.hoursWorked.toFixed(2)}</td>
                 <td>$${employee.grossPay.toFixed(2)}</td>
-                <td><button class="remove-btn" onclick
+                <td><button class="remove-btn" onclick="confirmRemoveEmployee(${index})">Remove</button></td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
+}
 
+function removeAllEmployees() {
+    if (confirm('Are you sure you want to remove all employees?')) {
+        employees = [];
+        updateEmployeeTable();
+        document.getElementById('result').innerHTML = '';
+    }
+}
 
+function calculateTotalPayroll() {
+    const totalGrossPay = employees.reduce((total, employee) => total + employee.grossPay, 0);
 
-
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `
+        Total Employees: ${employees.length}<br>
+        Total Payroll: $${totalGrossPay.toFixed(2)}
+    `;
+}
