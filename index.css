@@ -119,11 +119,23 @@ footer {
 #project-iframe-container {
     width: 100%;
     max-width: 800px;
+    max-height: calc(100vh - 200px); /* Adjust height based on the navbar and footer size */
+    overflow: hidden; /* Prevents scrolling within the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
+
 #project-iframe {
+    width: 100%;
+    max-height: calc(100vh - 250px); /* Adjust iframe height to fit */
     border: 2px solid maroon;
     border-radius: 8px;
+    overflow: hidden;
 }
+
 #project-iframe-container button {
     margin-top: 15px;
     background-color: maroon;
