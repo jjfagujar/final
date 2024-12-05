@@ -30,20 +30,30 @@ function toggleMenu() {
 
 // Function to show specific sections
 function showSection(sectionName) {
+    console.log(`Switching to section: ${sectionName}`);
+    
     // Hide all sections
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.style.display = 'none';
     });
+    
     // Show selected section
     const selectedSection = document.getElementById(`${sectionName}-section`);
-    selectedSection.style.display = 'block';
-    // Close mobile menu when a section is selected
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        console.log(`Displayed section: ${selectedSection.id}`);
+    } else {
+        console.error(`Section not found: ${sectionName}-section`);
+    }
+
+    // Close mobile menu if active
     const navbarLinks = document.querySelector('.navbar-links');
     if (navbarLinks.classList.contains('active')) {
         toggleMenu();
     }
 }
+
 
 // Function to load project
 function loadProject(projectName) {
