@@ -1,7 +1,5 @@
 // Array to store employee data
 let employees = [];
-let employeeToRemoveIndex = -1; // Variable to store the index of employee to be removed
-let isRemoveAll = false; // Variable to track if "Delete All" is triggered
 
 function addEmployee() {
     const employeeName = document.getElementById('employeeName').value;
@@ -38,7 +36,7 @@ function addEmployee() {
 
 function updateEmployeeTable() {
     const tableBody = document.getElementById('employeeTableBody');
-    tableBody.innerHTML = ''; // Clear the table before updating
+    tableBody.innerHTML = '';
 
     employees.forEach((employee, index) => {
         const row = `
@@ -55,59 +53,40 @@ function updateEmployeeTable() {
 }
 
 function confirmRemoveEmployee(index) {
-    // Store the index of the employee to be removed
-    employeeToRemoveIndex = index;
-    isRemoveAll = false; // Reset remove all flag
-
-    // Update modal text for single employee removal
-    document.getElementById('modalText').textContent = `Are you sure you want to delete ${employees[index].name}?`;
-
     // Show the modal
-    document.getElementById('confirmationModal').style.display = 'block';
-}
+    const modal = document.getElementById('confirmationModal');
+    modal.style.display = 'block';
 
-function confirmRemoveAllEmployees() {
-    // Set the flag to indicate delete all employees
-    isRemoveAll = true;
-
-    // Update modal text for removing all employees
-    document.getElementById('modalText').textContent = "Are you sure you want to delete all employees?";
-
-    // Show the modal for confirming the delete all action
-    document.getElementById('confirmationModal').style.display = 'block';
-}
-
-function removeEmployee() {
-    if (employeeToRemoveIndex >= 0) {
-        // Remove the employee from the array
-        employees.splice(employeeToRemoveIndex, 1);
+    // Handle the Yes action
+    document.getElementById('confirmYes').onclick = function() {
+        employees.splice(index, 1);
         updateEmployeeTable();
-    }
+        closeModal();
+    };
 
-    // Hide the modal
-    document.getElementById('confirmationModal').style.display = 'none';
-    employeeToRemoveIndex = -1; // Reset index
-    isRemoveAll = false; // Reset remove all flag
+    // Handle the No action
+    document.getElementById('confirmNo').onclick = function() {
+        closeModal();
+    };
 }
 
 function removeAllEmployees() {
-    // Clear all employees if the flag is set to true
-    if (isRemoveAll) {
+    // Show the modal for removing all employees
+    const modal = document.getElementById('confirmationModal');
+    modal.style.display = 'block';
+
+    // Handle the Yes action for removing all employees
+    document.getElementById('confirmYes').onclick = function() {
         employees = [];
         updateEmployeeTable();
         document.getElementById('result').innerHTML = '';
-    }
+        closeModal();
+    };
 
-    // Hide the modal
-    document.getElementById('confirmationModal').style.display = 'none';
-    isRemoveAll = false; // Reset remove all flag
-}
-
-function cancelRemoveEmployee() {
-    // Hide the modal without removing anything
-    document.getElementById('confirmationModal').style.display = 'none';
-    employeeToRemoveIndex = -1; // Reset index
-    isRemoveAll = false; // Reset remove all flag
+    // Handle the No action for canceling
+    document.getElementById('confirmNo').onclick = function() {
+        closeModal();
+    };
 }
 
 function calculateTotalPayroll() {
@@ -120,16 +99,15 @@ function calculateTotalPayroll() {
     `;
 }
 
-// Add event listeners for modal buttons
-document.getElementById('confirmYes').addEventListener('click', () => {
-    if (isRemoveAll) {
-        removeAllEmployees();
-    } else {
-        removeEmployee();
+function closeModal() {
+    const modal = document.getElementById('confirmationModal');
+    modal.style.display = 'none';
+}
+
+// Close modal if clicked outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('confirmationModal');
+    if (event.target === modal) {
+        closeModal();
     }
-});
-document.getElementById('confirmNo').addEventListener('click', cancelRemoveEmployee);
-
-
-
-
+};
