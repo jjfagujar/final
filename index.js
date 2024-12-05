@@ -38,7 +38,7 @@ function showSection(sectionName) {
         section.style.display = 'none';
     });
     
-    // Show selected section
+    // Show the selected section
     const selectedSection = document.getElementById(`${sectionName}-section`);
     if (selectedSection) {
         selectedSection.style.display = 'block';
@@ -47,13 +47,12 @@ function showSection(sectionName) {
         console.error(`Section not found: ${sectionName}-section`);
     }
 
-    // Close mobile menu if active
+    // Close the mobile menu if active
     const navbarLinks = document.querySelector('.navbar-links');
     if (navbarLinks.classList.contains('active')) {
         toggleMenu();
     }
 }
-
 
 // Function to load project
 function loadProject(projectName) {
