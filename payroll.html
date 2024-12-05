@@ -30,7 +30,7 @@
         </table>
         <div class="button-group">
             <button onclick="calculateTotalPayroll()">Calculate Total Payroll</button>
-            <button onclick="confirmRemoveAllEmployees()" class="remove-all-btn">Remove All Employees</button>
+            <button onclick="removeAllEmployees()" class="remove-all-btn">Remove All Employees</button>
         </div>
         <p id="result"></p>
     </div>
@@ -38,7 +38,7 @@
     <!-- Modal for Confirmation -->
     <div id="confirmationModal" class="modal">
         <div class="modal-content">
-            <p id="modalText">Are you sure you want to delete this employee?</p>
+            <h3>Are you sure?</h3>
             <div class="modal-buttons">
                 <button id="confirmYes">Yes</button>
                 <button id="confirmNo">No</button>
@@ -49,8 +49,3 @@
     <script src="payroll.js"></script>
 </body>
 </html>
-
-
-
-
-
