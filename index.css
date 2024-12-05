@@ -44,11 +44,12 @@ body {
 .content {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
     padding: 2rem;
-    text-align: center;
+    text-align: center; /* Optional: center text alignment */
 }
+/* NEW SECTION VISIBILITY STYLES */
 .section {
     display: none;
     width: 100%;
@@ -57,8 +58,9 @@ body {
     padding: 2rem;
 }
 #home-section {
-    display: block;
+    display: block; /* Home section visible by default */
 }
+/* END OF NEW SECTION VISIBILITY STYLES */
 #home-section, 
 #projects-section, 
 #contacts-section {
@@ -88,41 +90,6 @@ footer {
     padding: 1rem;
     width: 100%;
 }
-#project-iframe-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 800px; /* Keeps it from growing too wide */
-    margin: 0 auto; /* Centers it horizontally */
-    text-align: center;
-}
-
-
-
-#project-iframe {
-    width: 100%;
-    max-width: 800px;
-    border: 2px solid maroon;
-    border-radius: 8px;
-}
-
-#project-iframe-container button {
-    margin-top: 15px;
-    background-color: maroon;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#project-iframe-container button:hover {
-    background-color: #8b0000;
-}
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar-links {
@@ -147,7 +114,24 @@ footer {
     }
     .content {
         padding: 1rem;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* Center contents horizontally */
+        align-items: center; /* Center contents vertically */
     }
+}
+#project-iframe-container {
+    width: 100%;
+    max-width: 800px;
+}
+#project-iframe {
+    border: 2px solid maroon;
+    border-radius: 8px;
+}
+#project-iframe-container button {
+    margin-top: 15px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
 }
