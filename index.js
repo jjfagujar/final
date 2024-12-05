@@ -68,7 +68,7 @@ function loadProject(projectName) {
         projectIframe.src = 'natural-numbers.html';
     } else if (projectName === 'payroll') {
          projectIframe.src = 'payroll.html';
-}
+    }
 
 function closeProject() {
     const projectContent = document.getElementById('project-content');
