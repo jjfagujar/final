@@ -14,9 +14,25 @@
             <input type="text" id="employeeName" placeholder="Employee Name">
             <input type="number" id="hourlyRate" placeholder="Hourly Rate ($)">
             <input type="number" id="hoursWorked" placeholder="Hours Worked">
-            <button onclick="calculatePayroll()">Calculate Payroll</button>
-            <p id="result"></p>
+            <button onclick="addEmployee()">Add Employee</button>
         </div>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Hourly Rate</th>
+                    <th>Hours Worked</th>
+                    <th>Gross Pay</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody"></tbody>
+        </table>
+        <div class="button-group">
+            <button onclick="calculateTotalPayroll()">Calculate Total Payroll</button>
+            <button onclick="removeAllEmployees()" class="remove-all-btn">Remove All Employees</button>
+        </div>
+        <p id="result"></p>
     </div>
     <script src="payroll.js"></script>
 </body>
