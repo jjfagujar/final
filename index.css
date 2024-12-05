@@ -96,9 +96,10 @@ footer {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    min-height: calc(100vh - 200px);
+    height: 100vh; /* Ensures full viewport height */
     text-align: center;
 }
+
 
 #project-iframe {
     width: 100%;
