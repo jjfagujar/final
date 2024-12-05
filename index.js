@@ -36,7 +36,7 @@ function showSection(sectionName) {
         section.style.display = 'none';
     });
     // Show selected section
-    const selectedSection = document.getElementById(`${sectionName}-section`);
+    const selectedSection = document.getElementById(${sectionName}-section);
     selectedSection.style.display = 'block';
     // Close mobile menu when a section is selected
     const navbarLinks = document.querySelector('.navbar-links');
@@ -66,8 +66,7 @@ function loadProject(projectName) {
         projectIframe.src = 'income-tax.html';
     } else if (projectName === 'natural-numbers') {
         projectIframe.src = 'natural-numbers.html';
-    }
-} 
+    } 
 
 function closeProject() {
     const projectContent = document.getElementById('project-content');
