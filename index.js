@@ -1,121 +1,64 @@
-// Function to toggle mobile menu
+// Toggle mobile menu
 function toggleMenu() {
     const navbarLinks = document.querySelector('.navbar-links');
     navbarLinks.classList.toggle('active');
-    // Toggle burger menu animation
     const burgerLines = document.querySelectorAll('.burger-line');
     burgerLines.forEach((line, index) => {
-        line.style.transition = 'all 0.3s ease';
-        
-        // Animate burger menu to 'X' when open
         if (navbarLinks.classList.contains('active')) {
-            switch(index) {
-                case 0:
-                    line.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    break;
-                case 1:
-                    line.style.opacity = '0';
-                    break;
-                case 2:
-                    line.style.transform = 'rotate(-45deg) translate(5px, -5px)';
-                    break;
-            }
+            line.style.transition = 'all 0.3s ease';
+            if (index === 0) line.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            if (index === 1) line.style.opacity = '0';
+            if (index === 2) line.style.transform = 'rotate(-45deg) translate(5px, -5px)';
         } else {
-            // Reset burger menu lines
-            line.style.transform = 'none';
+            line.style.transform = '';
             line.style.opacity = '1';
         }
     });
 }
 
-// Function to show specific sections
+// Show specific sections
 function showSection(sectionName) {
-    console.log(`Switching to section: ${sectionName}`);
-    
-    // Hide all sections
     const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
-    
-    // Show the selected section
-    const selectedSection = document.getElementById(`${sectionName}-section`);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-        console.log(`Displayed section: ${selectedSection.id}`);
-    } else {
-        console.error(`Section not found: ${sectionName}-section`);
-    }
-
-    // Close the mobile menu if active
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById(`${sectionName}-section`).style.display = 'block';
     const navbarLinks = document.querySelector('.navbar-links');
-    if (navbarLinks.classList.contains('active')) {
-        toggleMenu();
-    }
+    if (navbarLinks.classList.contains('active')) toggleMenu();
 }
 
-// Function to load project
+// Load specific project
 function loadProject(projectName) {
     const projectContent = document.getElementById('project-content');
     const projectIframeContainer = document.getElementById('project-iframe-container');
     const projectIframe = document.getElementById('project-iframe');
-    const projectsSection = document.getElementById('projects-section');
-    
-    // Hide project links and "Projects" text
     projectContent.style.display = 'none';
-    projectsSection.querySelector('h2').style.display = 'none';
-    
-    // Show iframe container
+    document.getElementById('projects-section').querySelector('h2').style.display = 'none';
     projectIframeContainer.style.display = 'block';
-    
-    // Load specific project
-    if (projectName === 'convertor') {
-        projectIframe.src = 'convertor.html';
-    } else if (projectName === 'income-tax') {
-        projectIframe.src = 'income-tax.html';
-    } else if (projectName === 'natural-numbers') {
-        projectIframe.src = 'natural-numbers.html';
-    } 
 
-function closeProject() {
-    const projectContent = document.getElementById('project-content');
-    const projectIframeContainer = document.getElementById('project-iframe-container');
-    const projectsSection = document.getElementById('projects-section');
-    
-    // Hide iframe
-    projectIframeContainer.style.display = 'none';
-    
-    // Show project links and "Projects" text
-    projectContent.style.display = 'block';
-    projectsSection.querySelector('h2').style.display = 'block';
+    const projectMapping = {
+        'convertor': 'convertor.html',
+        'income-tax': 'income-tax.html',
+        'natural-numbers': 'natural-numbers.html'
+    };
+    projectIframe.src = projectMapping[projectName] || '404.html';
 }
 
-// Initialize: Show home section by default
+// Close project
+function closeProject() {
+    document.getElementById('project-iframe-container').style.display = 'none';
+    document.getElementById('project-content').style.display = 'block';
+    document.getElementById('projects-section').querySelector('h2').style.display = 'block';
+}
+
+// Initialize default behaviors
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
-    // Add event listener to close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', event => {
         const navbarLinks = document.querySelector('.navbar-links');
         const burgerMenu = document.querySelector('.burger-menu');
-        
-        if (navbarLinks.classList.contains('active') && 
-            !navbarLinks.contains(event.target) && 
+        if (navbarLinks.classList.contains('active') &&
+            !navbarLinks.contains(event.target) &&
             !burgerMenu.contains(event.target)) {
             toggleMenu();
-        }
-    });
-    // Responsive navbar handling
-    window.addEventListener('resize', () => {
-        const navbarLinks = document.querySelector('.navbar-links');
-        const burgerMenu = document.querySelector('.burger-menu');
-        // Check if the screen is large or small
-        if (window.innerWidth > 768) {
-            // On large screens, ensure the navbar is visible and reset it to default state
-            navbarLinks.classList.remove('active');
-            navbarLinks.style.removeProperty('display'); // Let CSS take care of layout
-        } else {
-            // On small screens, navbar will be hidden until toggled
-            navbarLinks.style.display = ''; // Ensure it is shown when toggled
         }
     });
 });
