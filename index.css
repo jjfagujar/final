@@ -117,15 +117,23 @@ footer {
         justify-content: center; /* Center contents horizontally */
         align-items: center; /* Center contents vertically */
     }
-}
 #project-iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 800px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px); /* Adjust based on your navbar and footer height */
 }
+
 #project-iframe {
+    width: 100%;
+    max-width: 800px;
     border: 2px solid maroon;
     border-radius: 8px;
 }
+
 #project-iframe-container button {
     margin-top: 15px;
     background-color: maroon;
